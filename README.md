@@ -130,11 +130,14 @@ function convertToWei(uint amount) private pure returns(uint) {
 
 ![Javascript VM with initial Ether](3_1.PNG)
 <br><br>
+
 >__Owner address__
 
-![](4_1.PNG)
+![Address of owner below getOwner block](4_1.PNG)
 
-
+<br><br>
+>__Setiing the account and salary for employee in setSalary box in the image__
+![setSalary field](5_1.PNG)
 
 
 

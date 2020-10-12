@@ -126,13 +126,11 @@ function convertToWei(uint amount) private pure returns(uint) {
 
 ## Screenshots
 
->Javascript VM where contract was deployed with 5 ethers which is shown as 5000000000000000000 wei
+>__Javascript VM where contract was deployed with 5 ethers which is shown as 5000000000000000000 wei__
 
 ![Javascript VM with initial Ether](3_1.PNG)
-
-
-
->Owner address
+<br><br>
+>__Owner address__
 
 ![](4_1.PNG)
 

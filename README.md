@@ -109,7 +109,6 @@ function payout() public payable {
     employee[i].transfer(convertToWei(eSalary[employee[i]]));
     }
 }
- 
 ```
 
 __transfer__  function send the ether to __employee[i]__
@@ -127,9 +126,9 @@ function convertToWei(uint amount) private pure returns(uint) {
 
 ### Screenshots
 
+>Javascript VM where contract was deployed with 5 ethers which is shown as 5000000000000000000 wei
 ![Screenshot](3.PNG)
 
->Javascript VM where contract was deployed with 5 ethers which is shown as 5000000000000000000 wei
 
 
 

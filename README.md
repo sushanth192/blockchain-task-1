@@ -11,10 +11,119 @@ To implement the salary distribution demonstration in blockchain, we need to hav
 
 We define the smart contract named __SalaryDemo__ in Remix IDE with the __contract__ keyword
 ``` solidity
-pragma solidity ^0.5.0;
-//Here we are using the solidity compiler version of 0.5.0
-
 contract SalaryDemo {
   //Business logic here
 } 
 ```
+
+We’ll define the state variables in the contract
+
+```
+    address payable owner; 
+    //Address of owner
+    
+    uint salary;
+    //Salary of each employee
+    
+    address payable[] employee;
+    //Array of addresses of employees
+    
+    mapping (address  => uint) eSalary;
+    //Map structure to map address of employee to his/her salary
+  
+    event LogDeposit(uint hello, address accountAddress) ;
+    //Event to show the salary and address of the employee in the console
+    
+    event strr(string mess);
+    //To show some message in the console
+```
+
+Let’s define the constructor which sets the owner account when we deploy the contract to the blockchain
+```
+//__public__ meaning it’s accessible outside the contract
+constructor() public payable {
+    owner = msg.sender;
+}
+```
+
+We are using a __modifier__, which adds a constraint on certain methods used below so that only the owner is able to invoke it
+
+```
+modifier onlyOwner {
+        require(msg.sender == owner);
+        //Condition checking is done and throws error if it fails
+        _;
+    }
+```
+
+Next, we have methods. Let’s take them one by one.
+
+### getOwner
+This method returns the account address of the owner, here it returns the address of the manager.
+
+```
+function getOwner() public view returns(address) {
+        return owner;
+}
+
+```
+
+### setSalary
+This method sets the salary of each employee by the manager
+
+```
+function setSalary(address payable addr, uint amount) public onlyOwner {
+        employee.push(addr);
+        //Push the employee address into the array
+
+        eSalary[addr] = amount;
+        //Set the corresponding salary
+}
+
+```
+Here __onlyOwner__ modifier ensures that only the owner(manager) can invoke this method
+
+
+### getSalary
+This method logs the salary of each employee and also finds total salary and logs it to console
+
+```
+function getSalary() payable public{
+        uint sum = 0;
+        for(uint i=0; i<employee.length; i++) {
+            sum += eSalary[employee[i]];
+            emit LogDeposit(eSalary[employee[i]], employee[i]);   
+        }
+        emit strr("sum is");
+        emit LogDeposit(sum, msg.sender);
+ }
+
+```
+
+### payout
+This method actually sends the salaries given by the manager to their accounts
+
+```
+function payout() public payable {  
+        for(uint i=0; i<employee.length; i++) {
+            employee[i].transfer(convertToWei(eSalary[employee[i]]));
+        }
+}
+ 
+```
+
+__transfer__  function send the ether to __employee[i]__
+
+### convertToEther
+Converts __ether__ to __wei__ as by default __transfer__ function takes units in __wei__
+
+```
+function convertToWei(uint amount) private pure returns(uint) {
+        return amount * 1000000000000000000;    //1 Ether = 1000000000000000000 Wei 
+    }
+
+``` 
+
+
+
+

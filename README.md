@@ -63,7 +63,7 @@ This method returns the account address of the owner, here it returns the addres
 
 ```solidity
 function getOwner() public view returns(address) {
-        return owner;
+   return owner;
 }
 
 ```

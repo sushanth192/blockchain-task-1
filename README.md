@@ -1,3 +1,3 @@
-# Salary distribution demonstration to employees
-## Blockchain task 1
+# Salary distribution demonstration
+
 Simple blockchain operation demonstration

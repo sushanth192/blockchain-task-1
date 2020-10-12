@@ -6,6 +6,11 @@ This demonstration is based on solidity programming, blockchain and smart contra
 * Remix IDE
 * Metamask
 
+## Members of project
+* Shawn Linton Miranda (7D, 4NM17CS164)
+* Shrivyas (7D, 4NM17CS179)
+* Sushanth Kumar Amin (7D, 4NM17CS192)
+
 ## Implementation Details
 To implement the salary distribution demonstration in blockchain, we need to have an environment to develop the blockchain code. We use Remix for this purpose. To do the transaction in blockchain we need to make use of __smart contracts__ which contain the business logic. This is deployed to the blockchain.
 

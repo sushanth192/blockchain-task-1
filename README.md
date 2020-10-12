@@ -116,7 +116,7 @@ __transfer__  function send the ether to __employee[i]__
 
 ### convertToWei
 Converts __ether__ to __wei__ as by default __transfer__ function takes units in __wei__
-
+(1 Ether = 10<sup>18</sup>wei)
 ```solidity
 function convertToWei(uint amount) private pure returns(uint) {
   return amount * 1000000000000000000;    

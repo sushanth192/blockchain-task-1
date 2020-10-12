@@ -18,5 +18,3 @@ contract SalaryDemo {
   //Business logic here
 } 
 ```
-
-

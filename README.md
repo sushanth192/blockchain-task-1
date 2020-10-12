@@ -126,7 +126,7 @@ function convertToWei(uint amount) private pure returns(uint) {
 ``` 
 
 ## Screenshots
-![Screenshot](3.png)
+![Screenshot](3.PNG)
 
 
 

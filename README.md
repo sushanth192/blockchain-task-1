@@ -136,8 +136,12 @@ function convertToWei(uint amount) private pure returns(uint) {
 ![Address of owner below getOwner block](4_1.PNG)
 
 <br><br>
->__Setiing the account and salary for employee in setSalary box in the image__
-![setSalary field](5_1.PNG)
+>__Setting the account and salary for employee in setSalary box in the image and ether__
 
+![setSalary field](5_1.PNG)
+<br><br>
+>__getSalary output__ 
+
+![getSalary](6.PNG)
 
 

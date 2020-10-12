@@ -140,8 +140,13 @@ function convertToWei(uint amount) private pure returns(uint) {
 
 ![setSalary field](5_1.PNG)
 <br><br>
->__getSalary output__ 
+
+>__getSalary output(in javascript VM)__ 
 
 ![getSalary](6.PNG)
+<br><br>
 
+>__Metamask transaction details after sending 2 and 3 ethers to two employees__
+
+![metamask](7.PNG)
 

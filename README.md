@@ -10,9 +10,9 @@ This demonstration is based on solidity programming, blockchain and smart contra
 To implement the salary distribution demonstration in blockchain, we need to have an environment to develop the blockchain code. We use Remix for this purpose. To do the transaction in blockchain we need to make use of __smart contracts__ which contain the business logic. This is deployed to the blockchain.
 
 We define the smart contract named __SalaryDemo__ in Remix IDE with the __contract__ keyword
- ``` solidity
-> contract SalaryDemo 
-```
+> ``` solidity
+contract SalaryDemo 
 
+kkk
 
 

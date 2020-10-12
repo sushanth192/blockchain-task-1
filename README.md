@@ -130,6 +130,8 @@ function convertToWei(uint amount) private pure returns(uint) {
 
 ![Javascript VM with initial Ether](3_1.PNG)
 
+
+
 >Owner address
 
 ![](4_1.PNG)

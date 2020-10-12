@@ -11,7 +11,8 @@ To implement the salary distribution demonstration in blockchain, we need to hav
 
 We define the smart contract named __SalaryDemo__ in Remix IDE with the __contract__ keyword
 > ``` solidity
-> contract SalaryDemo ```
+> contract SalaryDemo 
+```
 
 
 

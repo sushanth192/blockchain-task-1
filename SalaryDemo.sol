@@ -35,7 +35,7 @@ contract SalaryDemo {
     
     function payout() public payable {  
         for(uint i=0; i<employee.length; i++) {
-            employee[i].transfer(convertToEther(eSalary[employee[i]]));
+            employee[i].transfer(convertToWei(eSalary[employee[i]]));
         }
     }
     
@@ -43,7 +43,7 @@ contract SalaryDemo {
         return owner;
     }
     
-    function convertToEther(uint amount) private pure returns(uint) {
+    function convertToWei(uint amount) private pure returns(uint) {
         return amount * 1000000000000000000;    //1 Ether = 1000000000000000000 Wei
     }
 }

@@ -18,7 +18,7 @@ contract SalaryDemo {
 
 We’ll define the state variables in the contract
 
-```
+``` solidity
     address payable owner; 
     //Address of owner
     
@@ -39,7 +39,7 @@ We’ll define the state variables in the contract
 ```
 
 Let’s define the constructor which sets the owner account when we deploy the contract to the blockchain
-```
+```solidity
 //__public__ meaning it’s accessible outside the contract
 constructor() public payable {
     owner = msg.sender;
@@ -48,7 +48,7 @@ constructor() public payable {
 
 We are using a __modifier__, which adds a constraint on certain methods used below so that only the owner is able to invoke it
 
-```
+```solidity
 modifier onlyOwner {
         require(msg.sender == owner);
         //Condition checking is done and throws error if it fails
@@ -61,7 +61,7 @@ Next, we have methods. Let’s take them one by one.
 ### getOwner
 This method returns the account address of the owner, here it returns the address of the manager.
 
-```
+```solidity
 function getOwner() public view returns(address) {
         return owner;
 }
@@ -71,7 +71,7 @@ function getOwner() public view returns(address) {
 ### setSalary
 This method sets the salary of each employee by the manager
 
-```
+```solidity
 function setSalary(address payable addr, uint amount) public onlyOwner {
         employee.push(addr);
         //Push the employee address into the array
@@ -80,14 +80,14 @@ function setSalary(address payable addr, uint amount) public onlyOwner {
         //Set the corresponding salary
 }
 
-```
+```solidity
 Here __onlyOwner__ modifier ensures that only the owner(manager) can invoke this method
 
 
 ### getSalary
 This method logs the salary of each employee and also finds total salary and logs it to console
 
-```
+```solidity
 function getSalary() payable public{
         uint sum = 0;
         for(uint i=0; i<employee.length; i++) {
@@ -103,7 +103,7 @@ function getSalary() payable public{
 ### payout
 This method actually sends the salaries given by the manager to their accounts
 
-```
+```solidity
 function payout() public payable {  
         for(uint i=0; i<employee.length; i++) {
             employee[i].transfer(convertToWei(eSalary[employee[i]]));
@@ -114,10 +114,10 @@ function payout() public payable {
 
 __transfer__  function send the ether to __employee[i]__
 
-### convertToEther
+### convertToWei
 Converts __ether__ to __wei__ as by default __transfer__ function takes units in __wei__
 
-```
+```solidity
 function convertToWei(uint amount) private pure returns(uint) {
         return amount * 1000000000000000000;    //1 Ether = 1000000000000000000 Wei 
     }

@@ -19,23 +19,23 @@ contract SalaryDemo {
 We’ll define the state variables in the contract
 
 ``` solidity
-    address payable owner; 
-    //Address of owner
+address payable owner; 
+//Address of owner
     
-    uint salary;
-    //Salary of each employee
+uint salary;
+//Salary of each employee
     
-    address payable[] employee;
-    //Array of addresses of employees
+address payable[] employee;
+//Array of addresses of employees
     
-    mapping (address  => uint) eSalary;
-    //Map structure to map address of employee to his/her salary
+mapping (address  => uint) eSalary;
+//Map structure to map address of employee to his/her salary
   
-    event LogDeposit(uint hello, address accountAddress) ;
-    //Event to show the salary and address of the employee in the console
+event LogDeposit(uint hello, address accountAddress) ;
+//Event to show the salary and address of the employee in the console
     
-    event strr(string mess);
-    //To show some message in the console
+event strr(string mess);
+//To show some message in the console
 ```
 
 Let’s define the constructor which sets the owner account when we deploy the contract to the blockchain
@@ -50,10 +50,10 @@ We are using a __modifier__, which adds a constraint on certain methods used bel
 
 ```solidity
 modifier onlyOwner {
-        require(msg.sender == owner);
-        //Condition checking is done and throws error if it fails
-        _;
-    }
+  require(msg.sender == owner);
+  //Condition checking is done and throws error if it fails
+  _;
+}
 ```
 
 Next, we have methods. Let’s take them one by one.
@@ -73,14 +73,14 @@ This method sets the salary of each employee by the manager
 
 ```solidity
 function setSalary(address payable addr, uint amount) public onlyOwner {
-        employee.push(addr);
-        //Push the employee address into the array
+  employee.push(addr);
+  //Push the employee address into the array
 
-        eSalary[addr] = amount;
-        //Set the corresponding salary
+  eSalary[addr] = amount;
+  //Set the corresponding salary
 }
 
-```solidity
+```
 Here __onlyOwner__ modifier ensures that only the owner(manager) can invoke this method
 
 
@@ -89,14 +89,14 @@ This method logs the salary of each employee and also finds total salary and log
 
 ```solidity
 function getSalary() payable public{
-        uint sum = 0;
-        for(uint i=0; i<employee.length; i++) {
-            sum += eSalary[employee[i]];
-            emit LogDeposit(eSalary[employee[i]], employee[i]);   
-        }
-        emit strr("sum is");
-        emit LogDeposit(sum, msg.sender);
- }
+  uint sum = 0;
+  for(uint i=0; i<employee.length; i++) {
+    sum += eSalary[employee[i]];
+    emit LogDeposit(eSalary[employee[i]], employee[i]);   
+  }
+  emit strr("sum is");
+  emit LogDeposit(sum, msg.sender);
+}
 
 ```
 
@@ -104,10 +104,10 @@ function getSalary() payable public{
 This method actually sends the salaries given by the manager to their accounts
 
 ```solidity
-function payout() public payable {  
-        for(uint i=0; i<employee.length; i++) {
-            employee[i].transfer(convertToWei(eSalary[employee[i]]));
-        }
+function payout() public payable {
+  for(uint i=0; i<employee.length; i++) {
+    employee[i].transfer(convertToWei(eSalary[employee[i]]));
+    }
 }
  
 ```
@@ -119,8 +119,9 @@ Converts __ether__ to __wei__ as by default __transfer__ function takes units in
 
 ```solidity
 function convertToWei(uint amount) private pure returns(uint) {
-        return amount * 1000000000000000000;    //1 Ether = 1000000000000000000 Wei 
-    }
+  return amount * 1000000000000000000;    
+  //1 Ether = 1000000000000000000 Wei 
+}
 
 ``` 
 

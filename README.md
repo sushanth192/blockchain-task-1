@@ -148,5 +148,5 @@ function convertToWei(uint amount) private pure returns(uint) {
 
 >__Metamask transaction details after sending 2 and 3 ethers to two employees__
 
-![metamask](7.PNG)
+![metamask](7.jpeg)
 
